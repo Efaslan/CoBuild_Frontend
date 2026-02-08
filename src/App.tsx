@@ -1,13 +1,17 @@
-import './App.css'
+import { useState } from 'react';
+import { HomePage } from './components/pages/HomePage'; // Dosya yoluna dikkat et
+import './App.css';
 
 function App() {
+  const handleNavigate = (page: string) => {
+    console.log("Gidilecek sayfa:", page);
+  };
 
   return (
     <>
-      <h1>Cobuild</h1>
-      <p>Özgür sana güven tam</p>
+      <HomePage onNavigate={handleNavigate} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

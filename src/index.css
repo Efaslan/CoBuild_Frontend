@@ -1,14 +1,65 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import "tailwindcss";
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+/* 1. Tema Ayarları (Değişkenler) */
+@theme {
+  --color-background: #F8F9FB;
+  --color-foreground: #1E293B;
+  
+  --color-primary: #1E40AF;
+  --color-primary-foreground: #ffffff;
+  
+  --color-secondary: #475569;
+  --color-secondary-foreground: #ffffff;
+  
+  --color-muted: #E2E8F0;
+  --color-muted-foreground: #64748B;
+  
+  --color-accent: #3B82F6;
+  --color-accent-foreground: #ffffff;
+  
+  --color-destructive: #d4183d;
+  --color-destructive-foreground: #ffffff;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --color-border: #E2E8F0;
+  --color-input: #E2E8F0;
+  --color-ring: #3B82F6;
+  
+  --color-card: #ffffff;
+  --color-card-foreground: #1E293B;
+
+  --color-popover: #ffffff;
+  --color-popover-foreground: #1E293B;
+
+  --radius-lg: 0.625rem;
+  --radius-md: calc(0.625rem - 2px);
+  --radius-sm: calc(0.625rem - 4px);
+  
+  /* Animasyonlar için (Opsiyonel) */
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+}
+
+/* 2. Global Stiller (DÜZELTİLEN KISIM) */
+/* @apply yerine native CSS değişkenlerini kullanıyoruz, bu hatayı çözer */
+@layer base {
+  * {
+    border-color: var(--color-border); /* @apply border-border yerine bunu kullan */
+    outline-color: var(--color-ring);
+  }
+  
+  body {
+    background-color: var(--color-background); /* @apply bg-background yerine */
+    color: var(--color-foreground);            /* @apply text-foreground yerine */
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  h1 { @apply text-4xl font-medium leading-tight; }
+  h2 { @apply text-2xl font-medium; }
+  h3 { @apply text-xl font-medium; }
+}
+
+/* 3. Özel Efektler */
+.backdrop-blur-xl {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }

@@ -1,11 +1,9 @@
-import React from 'react';
-import { Button } from '../ui/button.tsx';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card.tsx';
-import { Badge } from '../ui/badge.tsx';
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar.tsx';
+import { Button } from '../components/ui/button.tsx';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card.tsx';
+import { Badge } from '../components/ui/badge.tsx';
+import { Avatar, AvatarFallback, AvatarImage } from '../components/ui/avatar.tsx';
 import { ArrowRight, Users, FolderKanban, Target, TrendingUp, Award, Zap } from 'lucide-react';
-import { mockProjects } from '../data/mockData';
-import { ImageWithFallback } from '../styles/ImageWithFallback';
+import { mockProjects } from '../../mockData.ts';
 interface HomePageProps {
   onNavigate: (page: string) => void;
 }
@@ -91,15 +89,6 @@ export function HomePage({ onNavigate }: HomePageProps) {
             </div>
 
             <div className="relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1739298061740-5ed03045b280?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWFtJTIwY29sbGFib3JhdGlvbiUyMHdvcmtzcGFjZXxlbnwxfHx8fDE3NzAzNjEwNjh8MA&ixlib=rb-4.1.0&q=80&w=1080"
-                  alt="Team collaboration"
-                  className="w-full h-auto object-cover"
-                  width={600}
-                  height={400}
-                />
-              </div>
               <Card className="absolute -bottom-6 -left-6 w-64 shadow-xl">
                 <CardContent className="p-4">
                   <div className="flex items-center gap-3">

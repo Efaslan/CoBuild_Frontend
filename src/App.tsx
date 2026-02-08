@@ -1,6 +1,4 @@
-import { useState } from 'react';
-import { HomePage } from './components/pages/HomePage'; // Dosya yoluna dikkat et
-import './App.css';
+import { HomePage } from './pages/HomePage'; // Dosya yoluna dikkat et
 
 function App() {
   const handleNavigate = (page: string) => {

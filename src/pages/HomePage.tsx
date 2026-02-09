@@ -4,6 +4,7 @@ import { Badge } from '../components/ui/badge.tsx';
 import { Avatar, AvatarFallback, AvatarImage } from '../components/ui/avatar.tsx';
 import { ArrowRight, Users, FolderKanban, Target, TrendingUp, Award, Zap } from 'lucide-react';
 import { mockProjects } from '../../mockData.ts';
+import HeroAnimation from '../components/HeroAnimation';
 interface HomePageProps {
   onNavigate: (page: string) => void;
 }
@@ -87,9 +88,12 @@ export function HomePage({ onNavigate }: HomePageProps) {
                 </div>
               </div>
             </div>
-
             <div className="relative">
-              <Card className="absolute -bottom-6 -left-6 w-64 shadow-xl">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl w-full h-[500px] bg-black">
+                <HeroAnimation />
+              </div>
+              {/* Floating card */}
+              <Card className="absolute -bottom-6 -left-6 w-64 shadow-xl z-10 bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/60">
                 <CardContent className="p-4">
                   <div className="flex items-center gap-3">
                     <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
@@ -102,7 +106,10 @@ export function HomePage({ onNavigate }: HomePageProps) {
                   </div>
                 </CardContent>
               </Card>
+
             </div>
+            {/* --- DEĞİŞEN KISIM BİTTİ --- */}
+
           </div>
         </div>
       </section>

@@ -1,8 +1,8 @@
-import { Button } from '../components/ui/button.tsx';
-import { Avatar, AvatarFallback, AvatarImage } from '../components/ui/avatar';
-import { Badge } from '../components/ui/badge';
+import { Button } from '../ui/button.tsx';
+import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar.tsx';
+import { Badge } from '../ui/badge.tsx';
 import { Bell, FolderKanban } from 'lucide-react';
-import { currentUser } from '../../mockData.ts';
+import { currentUser } from '../../../mockData.ts';
 
 interface HeaderProps {
   isAuthenticated: boolean;
@@ -11,7 +11,7 @@ interface HeaderProps {
 
 export function Header({ isAuthenticated, onNavigate }: HeaderProps) {
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
       <div className="container mx-auto flex h-16 items-center justify-between px-6">
         {/* Logo */}
         <div 
@@ -21,7 +21,7 @@ export function Header({ isAuthenticated, onNavigate }: HeaderProps) {
           <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
             <FolderKanban className="h-5 w-5 text-primary-foreground" />
           </div>
-          <h2 className="text-xl">CollabHub</h2>
+          <h2 className="text-xl">CoBuild</h2>
         </div>
 
         {/* Navigation */}

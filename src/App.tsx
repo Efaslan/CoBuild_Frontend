@@ -1,7 +1,6 @@
-import { HomePage } from './pages/HomePage'; // Dosya yoluna dikkat et
-import { Header } from './pages/Header';
+import { HomePage } from './pages/Home'; // Dosya yoluna dikkat et
+import { Header } from './components/layout/Header';
 import { Login } from './pages/Login';
-import './App.css';
 import { useState } from 'react';
 
 type Page = 'home' | 'login' | 'signup' | 'dashboard' | 'discovery' | 'project-management' | 'project-details' | 'messages' | 'profile';

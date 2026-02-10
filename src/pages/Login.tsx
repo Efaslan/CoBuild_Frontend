@@ -29,7 +29,7 @@ export function Login({ onLogin, onNavigate }: LoginProps) {
           <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
             <FolderKanban className="h-6 w-6 text-primary-foreground" />
           </div>
-          <h2 className="text-2xl">CollabHub</h2>
+          <h2 className="text-2xl">CoBuild</h2>
         </div>
 
         {/* Login Card with Glassmorphism */}

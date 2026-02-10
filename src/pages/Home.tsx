@@ -4,59 +4,33 @@ import { Badge } from '../components/ui/badge.tsx';
 import { Avatar, AvatarFallback, AvatarImage } from '../components/ui/avatar.tsx';
 import { ArrowRight, Users, FolderKanban, Target, TrendingUp, Award, Zap } from 'lucide-react';
 import { mockProjects } from '../../mockData.ts';
-import HeroAnimation from '../components/HeroAnimation';
+import HeroAnimation from '../components/HeroAnimation.tsx';
+import Footer from '../components/layout/Footer.tsx';
+// import NpmAnimation from '../components/NpmAnimation.tsx';
 interface HomePageProps {
   onNavigate: (page: string) => void;
 }
 
 // Top contributors mock data
 const topContributors = [
-  {
-    id: '1',
-    name: 'Sarah Chen',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah',
-    role: 'Full Stack Dev',
-    projects: 12,
-    contributions: 248
-  },
-  {
-    id: '2',
-    name: 'Marcus Williams',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Marcus',
-    role: 'UI/UX Designer',
-    projects: 8,
-    contributions: 186
-  },
-  {
-    id: '3',
-    name: 'Emma Rodriguez',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Emma',
-    role: 'ML Engineer',
-    projects: 6,
-    contributions: 174
-  },
-  {
-    id: '4',
-    name: 'David Kim',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=David',
-    role: 'Backend Dev',
-    projects: 10,
-    contributions: 162
-  }
+  {id: '1', name: 'Sarah Chen', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah', role: 'Full Stack Dev', projects: 12, contributions: 248},
+  {id: '2', name: 'Marcus Williams', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Marcus', role: 'UI/UX Designer', projects: 8, contributions: 186},
+  {id: '3', name: 'Emma Rodriguez', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Emma', role: 'ML Engineer', projects: 6, contributions: 174},
+  {id: '4', name: 'David Kim', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=David', role: 'Backend Dev', projects: 10, contributions: 162}
 ];
 
 export function HomePage({ onNavigate }: HomePageProps) {
   return (
     <div className="flex-1 overflow-y-auto">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary/10 via-background to-accent/10 border-b">
+      <section className="relative bg-linear-to-br from-primary/10 via-background to-accent/10 border-b">
         <div className="container mx-auto px-6 py-20 md:py-32">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <Badge variant="secondary" className="mb-2">
                 🚀 Join 10,000+ Developers Worldwide
               </Badge>
-              <h1 className="text-5xl md:text-6xl !leading-tight">
+              <h1 className="text-5xl md:text-6xl leading-tight!">
                 Build Your Dream Team
               </h1>
               <p className="text-xl text-muted-foreground">
@@ -89,11 +63,11 @@ export function HomePage({ onNavigate }: HomePageProps) {
               </div>
             </div>
             <div className="relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl w-full h-[500px] bg-black">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl w-full h-125 bg-black">
                 <HeroAnimation />
               </div>
               {/* Floating card */}
-              <Card className="absolute -bottom-6 -left-6 w-64 shadow-xl z-10 bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/60">
+              <Card className="absolute -bottom-6 -left-6 w-64 shadow-xl z-10 bg-card/95 backdrop-blur supports-backdrop-filter:bg-card/60">
                 <CardContent className="p-4">
                   <div className="flex items-center gap-3">
                     <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
@@ -108,13 +82,11 @@ export function HomePage({ onNavigate }: HomePageProps) {
               </Card>
 
             </div>
-            {/* --- DEĞİŞEN KISIM BİTTİ --- */}
-
           </div>
         </div>
       </section>
 
-      {/* How It Works */}
+      {/* How It Works and the cards section*/}
       <section className="py-20 border-b">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
@@ -282,7 +254,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-primary to-primary/80 text-primary-foreground">
+      <section className="py-20 bg-linear-to-br from-primary to-primary/80 text-primary-foreground">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-5xl mb-4">Ready to Build Something Amazing?</h2>
           <p className="text-xl mb-8 opacity-90">
@@ -294,56 +266,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
           </Button>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="py-12 border-t">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                  <FolderKanban className="h-5 w-5 text-primary-foreground" />
-                </div>
-                <h3 className="text-lg">CollabHub</h3>
-              </div>
-              <p className="text-sm text-muted-foreground">
-                Building the future of collaborative development, one project at a time.
-              </p>
-            </div>
-
-            <div>
-              <h4 className="mb-4">Product</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li className="hover:text-foreground cursor-pointer">Features</li>
-                <li className="hover:text-foreground cursor-pointer">Pricing</li>
-                <li className="hover:text-foreground cursor-pointer">Security</li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="mb-4">Company</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li className="hover:text-foreground cursor-pointer">About</li>
-                <li className="hover:text-foreground cursor-pointer">Blog</li>
-                <li className="hover:text-foreground cursor-pointer">Careers</li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="mb-4">Resources</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li className="hover:text-foreground cursor-pointer">Documentation</li>
-                <li className="hover:text-foreground cursor-pointer">Help Center</li>
-                <li className="hover:text-foreground cursor-pointer">Community</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="border-t mt-8 pt-8 text-center text-sm text-muted-foreground">
-            © 2026 CollabHub. All rights reserved.
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
